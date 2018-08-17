@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Juntala en Palan</string>
+    <string name="amount_hint">0.0</string>
+    <string name="calculate_exchange">Calculate</string>
+</resources>
