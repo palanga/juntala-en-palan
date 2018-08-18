@@ -2,4 +2,14 @@
     <string name="app_name">Juntala en Palan</string>
     <string name="amount_hint">0.0</string>
     <string name="calculate_exchange">Calculate</string>
+    <string name="go_to_exchange_rates_form_button_text">change rates</string>
+    <string name="currency_from_text">EUR</string>
+    <string name="currency_to_1_text">ARS</string>
+    <string name="currency_to_2_text">USD</string>
+    <string name="update_button">update</string>
+    <string name="cancel_button">cancel</string>
+    <string name="rate_hint">1.0</string>
+    <string name="change_rates_button">change rates</string>
+    <string name="fetch">fetch</string>
+    <string name="apply_rates">apply rates</string>
 </resources>
