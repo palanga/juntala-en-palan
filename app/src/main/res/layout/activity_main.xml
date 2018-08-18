@@ -6,176 +6,173 @@
     android:layout_height="match_parent"
     tools:context="io.palan.juntala.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/calculate_form_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/currency_from"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/currency_from_text" />
-
-        <EditText
-            android:id="@+id/amount_from_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:hint="@string/amount_hint"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/calculate_exchange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:onClick="handleCalculate"
-            android:text="@string/calculate_exchange" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate_form_container">
-
-        <TextView
-            android:id="@+id/pesos_symbol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/currency_to_1_text" />
-
-        <TextView
-            android:id="@+id/amount_converted_pesos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/amount_hint"
-            android:textSize="64sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:id="@+id/dollars_symbol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/currency_to_2_text" />
-
-        <TextView
-            android:id="@+id/amount_converted_dollars"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/amount_hint"
-            android:textSize="32sp" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/exchange_rates_input_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2">
-
-        <Button
-            android:id="@+id/exchange_rates_fetch_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fetch" />
-
-        <Button
-            android:id="@+id/exchange_rates_apply_button"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:onClick="handleChangeRates"
-            android:text="@string/apply_rates" />
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/calculate_form_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
 
-    <LinearLayout
-        android:id="@+id/eur_ars_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/exchange_rates_input_header">
+                <TextView
+                    android:id="@+id/currency_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/currency_from_text" />
 
-        <TextView
-            android:id="@+id/eur_ars_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EUR to ARS" />
+                <EditText
+                    android:id="@+id/amount_from_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:hint="@string/amount_hint"
+                    android:inputType="numberDecimal" />
 
-        <EditText
-            android:id="@+id/eur_ars_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:hint="@string/rate_hint"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/calculate_exchange_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:onClick="handleCalculate"
+                    android:text="@string/calculate_exchange" />
 
-    <LinearLayout
-        android:id="@+id/eur_usd_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eur_ars_container">
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/eur_usd_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EUR to USD" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
 
-        <EditText
-            android:id="@+id/eur_usd_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:hint="@string/rate_hint"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/pesos_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/currency_to_1_text" />
+
+                <TextView
+                    android:id="@+id/amount_converted_pesos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/amount_hint"
+                    android:textSize="64sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/dollars_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/currency_to_2_text" />
+
+                <TextView
+                    android:id="@+id/amount_converted_dollars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/amount_hint"
+                    android:textSize="32sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/exchange_rates_input_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout2">
+
+                <Button
+                    android:id="@+id/exchange_rates_fetch_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fetch" />
+
+                <Button
+                    android:id="@+id/exchange_rates_apply_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:onClick="handleChangeRates"
+                    android:text="@string/apply_rates" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eur_ars_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/eur_ars_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EUR to ARS" />
+
+                <EditText
+                    android:id="@+id/eur_ars_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:hint="@string/rate_hint"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eur_usd_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/eur_usd_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EUR to USD" />
+
+                <EditText
+                    android:id="@+id/eur_usd_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:hint="@string/rate_hint"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+        </TableLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>
