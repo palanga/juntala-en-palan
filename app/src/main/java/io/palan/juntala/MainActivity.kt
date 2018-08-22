@@ -5,7 +5,16 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.Fuel.Companion.put
+import com.github.kittinunf.fuel.android.extension.responseJson
+import com.github.kittinunf.fuel.gson.responseObject
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
+import com.github.kittinunf.result.map
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +50,42 @@ class MainActivity : AppCompatActivity() {
 
     fun handleFetch(view: View) {
         Toast.makeText(this, "not implemented", Toast.LENGTH_SHORT).show()
+        fetchFirex()
     }
 
+    fun fetchFirex() {
+//        val queue = Volley.newRequestQueue(this)
+
+        val baseUrl = "http://data.fixer.io/api"
+        val endpoint = "/latest"
+        val accessKey = "?access_key=194dd99570e0b7ccfcf4827bf443d387"
+
+//        source currency access restricted for free plan (default source currency is EUR)
+//        val sourceCurrency = "&base=USD"
+        val destinationCurrencies = "&symbols=USD,ARS,GBP"
+
+        val url = baseUrl + endpoint + accessKey + destinationCurrencies
+
+        val (_, _, result) = url.httpGet().responseString()
+
+        fun lala(result: String): Int {
+            return 7
+        }
+        result.map { result -> lala(result) }
+
+
+
+//        // Request a string response from the provided URL.
+//        val stringRequest = StringRequest(
+//                Request.Method.GET, url,
+//                Response.Listener<String> { response ->
+//                    // Display the first 500 characters of the response string.
+//                    fetch_response.text = "Response is: ${response}"
+//                },
+//                Response.ErrorListener { fetch_response.text = "That didn't work! ${url}" }
+//        )
+
+        // Add the request to the RequestQueue.
+//        queue.add(stringRequest)
+    }
 }
